@@ -2,9 +2,9 @@
 
 >## Table of contents
 <p align="center">
-<a href="#installation" style="font-size: 50px">Installation</a>
-<a href="#usage" style="font-size: 50px">Usage</a>
-<a href="#inspired-by" style="font-size: 50px">Inspired by</a>
+<a href="#installation" style="font-size: 100px">Installation</a>
+<a href="#usage" style="font-size: 100px">Usage</a>
+<a href="#inspired-by" style="font-size: 100px">Inspired by</a>
 </p>
 
 ***
