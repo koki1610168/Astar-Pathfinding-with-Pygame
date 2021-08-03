@@ -2,14 +2,14 @@
 
 >## Table of contents
 <p align="center">
-<a href="#installation" style="font-size: 100px">1. Installation</a>
-<a href="#usage" style="font-size: 100px">2. Usage</a>
-<a href="#inspired-by" style="font-size: 100px">3. Inspired by</a>
+<a href="#installation" style="font-size: 20px">Installation<br></a>
+<a href="#usage" style="font-size: 20px">Usage<br></a>
+<a href="#inspired-by" style="font-size: 20px">Inspired by<br></a>
 </p>
 
 ***
 
-![A* Pathfinding](./video.gif)
+![A* Pathfinding](./revise.gif)
 
 ***
 <a name="install"></a>
@@ -29,16 +29,7 @@ Run maze.py
 ```
 python maze.py
 ```
-You will see the following texts on your terminal
-```
-Start Position: 
-```
-You can type start positioin. By the way this grid is 10x10. 
-```
-Start Position: 0 0
-```
-Be careful! Do not include a comma between two numbers.
-Do same with end position.
+Right click to select barrier blocks, the red ones on the above gif. <br>Left click to select start and end position, the orange ones on the above gif.
 
 **Congratulations!**
 
