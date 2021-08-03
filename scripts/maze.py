@@ -1,18 +1,33 @@
+from pygame.locals import *
 import pygame
 import sys
 
 RED = (255, 0, 0)
 GREEN = (0, 255, 0)
+ORANGE = (233, 163, 38)
 WHITE = (255, 255, 255)
 BLACK = (0, 0, 0)
 WINDOW_HEIGHT = 800
 WINDOW_WIDTH = 800
 
 
-def drawGrid(maze, path):
+def drawGrid(maze):
     blockSize = 80
-    for x in range(0, WINDOW_HEIGHT, blockSize):
-        for y in range(0, WINDOW_WIDTH, blockSize):
+    for x in range(0, 800, blockSize):
+        for y in range(0, 800, blockSize):
+            rect = pygame.Rect(x, y, blockSize, blockSize)
+            if maze[y//80][x//80] == 1:
+                SCREEN.fill(RED, rect)
+            elif maze[y//80][x//80] == 2:
+                SCREEN.fill(ORANGE, rect)
+            else:
+                pygame.draw.rect(SCREEN, BLACK, rect, 1)
+
+
+def drawAnswerGrid(maze, path):
+    blockSize = 80
+    for x in range(0, 800, blockSize):
+        for y in range(0, 800, blockSize):
             rect = pygame.Rect(x, y, blockSize, blockSize)
             if maze[y//80][x//80] == 1:
                 SCREEN.fill(RED, rect)
@@ -21,6 +36,9 @@ def drawGrid(maze, path):
     for t in path:
         rect = pygame.Rect(t[1] * 80, t[0] * 80, blockSize, blockSize)
         SCREEN.fill(GREEN, rect)
+
+
+# Calculate the shortest path
 
 
 class Node():
@@ -121,31 +139,67 @@ def astar(maze, start, end):
 
 
 if __name__ == "__main__":
-    start = tuple(map(int, input("Start Position: ").split()))
-    end = tuple(map(int, input("End Position: ").split()))
+    maze = [[0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
     pygame.init()
     SCREEN = pygame.display.set_mode((WINDOW_WIDTH, WINDOW_HEIGHT))
-    SCREEN.fill(WHITE)
-
-    maze = [[0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 1, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
-            [0, 0, 1, 0, 0, 0, 0, 0, 0, 0],
-            [0, 0, 1, 1, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]]
-
-   
-    path = astar(maze, start, end)
-    print(path)
+    s_e_position = []
     while True:
-        drawGrid(maze, path)
+        SCREEN.fill(WHITE)
+        drawGrid(maze)
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 pygame.quit()
                 sys.exit()
 
+            elif event.type == pygame.MOUSEBUTTONDOWN:
+                if event.button == 3:
+                    x, y = pygame.mouse.get_pos()
+                    for t in range(0, 800, 80):
+                        for u in range(0, 800, 80):
+                            if x > t and x <= t+80 and y > u and y <= u+80:
+                                maze[u//80][t//80] = 1
+
+                if event.button == 1:
+                    x, y = pygame.mouse.get_pos()
+                    for t in range(0, 800, 80):
+                        for u in range(0, 800, 80):
+                            if x > t and x <= t+80 and y > u and y <= u+80:
+                                maze[u//80][t//80] = 2
+                                s_e_position.append([u//80, t//80])
+
+        if len(s_e_position) == 2:
+            start = tuple(s_e_position[0])
+            end = tuple(s_e_position[1])
+
+            maze[start[0]][start[1]] = 0
+            maze[end[0]][end[1]] = 0
+            path = astar(maze, start, end)
+            drawAnswerGrid(maze, path)
+
         pygame.display.update()
+"""
+        for i in range(10):
+            for j in range(10):
+                if maze[i][j] == 2:
+                    if count == 1:
+                        start = (i, j)
+                        print(1)
+                    if count == 2:
+                        end = (i, j)
+                        maze[start[0]][start[1]] = 0
+                        maze[end[0]][end[1]] = 0
+                        print(maze)
+                        path = astar(maze, start, end)
+                        drawAnswerGrid(maze, path)
+                        print(path)
+                        break
+"""
