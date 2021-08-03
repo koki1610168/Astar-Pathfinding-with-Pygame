@@ -29,7 +29,7 @@ Run maze.py
 ```
 python maze.py
 ```
-Right click to select barrier blocks, the red ones on the above gif. <br>Left click to select start and end position, the orange ones on the above gif.
+Right click to select barrier blocks, the red ones on the above gif. <br>Left click to select start and end positions, the orange ones on the above gif.
 
 **Congratulations!**
 
