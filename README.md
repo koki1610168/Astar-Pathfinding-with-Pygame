@@ -1,10 +1,13 @@
 # A* pathfinding with Pygame
 
+## Table of contents
 <p align="center">
 <a href="#installation">Installation</a>
 <a href="#usage">Usage</a>
 <a href="#inspired-by">Inspired by</a>
 </p>
+
+***
 
 ![A* Pathfinding](./video.gif)
 
