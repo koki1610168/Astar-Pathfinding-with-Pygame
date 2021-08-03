@@ -1,10 +1,13 @@
 # A* pathfinding with Pygame
 
+>## Table of contents
 <p align="center">
-<a href="#installation">Installation</a>
-<a href="#usage">Usage</a>
-<a href="#inspired-by">Inspired by</a>
+<a href="#installation" style="font-size: 100px">1. Installation</a>
+<a href="#usage" style="font-size: 100px">2. Usage</a>
+<a href="#inspired-by" style="font-size: 100px">3. Inspired by</a>
 </p>
+
+***
 
 ![A* Pathfinding](./video.gif)
 
@@ -37,7 +40,7 @@ Start Position: 0 0
 Be careful! Do not include a comma between two numbers.
 Do same with end position.
 
-**Congratulation!**
+**Congratulations!**
 
 <a name="inspired"></a>
 >## Inspired by
