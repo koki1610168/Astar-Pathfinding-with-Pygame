@@ -40,7 +40,7 @@ Start Position: 0 0
 Be careful! Do not include a comma between two numbers.
 Do same with end position.
 
-**Congratulation!**
+**Congratulations!**
 
 <a name="inspired"></a>
 >## Inspired by
