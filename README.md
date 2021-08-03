@@ -1,6 +1,6 @@
 # A* pathfinding with Pygame
 
-## Table of contents
+>## Table of contents
 <p align="center">
 <a href="#installation">Installation</a>
 <a href="#usage">Usage</a>
